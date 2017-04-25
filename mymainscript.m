@@ -38,23 +38,24 @@ A1 = zeros(sz,sz);
 A2 = zeros(sz,sz);
 
 %pseudo circulant matrices from the masks paper
-% for i=1:120
-%     for j=1:120
-%         A1((i-1)*120+1:i*120,(j-1)*120+1:j*120) = circs1(:,:,c(i,j));
-%         A2((i-1)*120+1:i*120,(j-1)*120+1:j*120) = circs2(:,:,c(i,j));
-%     end
-% end
-% save('A1.mat','A1');
-% save('A2.mat','A2');
-% W = haarmtx(sz);
-% save('W.mat','W');
+%takes a lot of time and are huge if saved comment this part and uncomment loads below
+for i=1:120
+     for j=1:120
+         A1((i-1)*120+1:i*120,(j-1)*120+1:j*120) = circs1(:,:,c(i,j));
+         A2((i-1)*120+1:i*120,(j-1)*120+1:j*120) = circs2(:,:,c(i,j));
+     end
+ end
+ save('A1.mat','A1');
+ save('A2.mat','A2');
+ %W = haarmtx(sz);
+ %save('W.mat','W');
 
 
-AA1 = load('A1.mat');
-AA2 = load('A2.mat');
+%AA1 = load('A1.mat');
+%AA2 = load('A2.mat');
 WW = load('W.mat');
-A1 = AA1.A1;
-A2 = AA2.A2;
+%A1 = AA1.A1;
+%A2 = AA2.A2;
 W = WW.W;
 
 disp('A1 and A2 and W loaded');
